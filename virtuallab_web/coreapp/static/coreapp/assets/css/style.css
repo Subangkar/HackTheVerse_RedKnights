@@ -294,6 +294,12 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 180px;
 }
 
+.navbar-nav>li>a.profile-image {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
 /* Nav Menu Arrows */
 .sf-arrows .sf-with-ul {
   padding-right: 30px;

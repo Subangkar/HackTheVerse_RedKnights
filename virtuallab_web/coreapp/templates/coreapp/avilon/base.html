@@ -1,0 +1,190 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	{% block header-content %}
+		<title>VirtuaLAB</title>
+
+	{% endblock %}
+	<meta content="" name="descriptison">
+	<meta content="" name="keywords">
+
+	<!-- Favicons -->
+	<link href="{% static 'coreapp/assets/img/favicon.png' %}" rel="icon">
+	<link href="{% static 'coreapp/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i"
+	      rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="{% static 'coreapp/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'coreapp/assets/vendor/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+	<link href="{% static 'coreapp/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+	<link href="{% static 'coreapp/assets/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+	<link href="{% static 'coreapp/assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+
+	<!-- Template Main CSS File -->
+	<link href="{% static 'coreapp/assets/css/style.css' %}" rel="stylesheet">
+
+	{% block header-css %}
+
+	{% endblock %}
+
+	<!-- =======================================================
+	* Template Name: Avilon - v2.1.0
+	* Template URL: https://bootstrapmade.com/avilon-bootstrap-landing-page-template/
+	* Author: BootstrapMade.com
+	* License: https://bootstrapmade.com/license/
+	======================================================== -->
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="header-transparent">
+	<div class="container">
+
+		<div id="logo" class="pull-left">
+			<h1><a href="{% static 'coreapp/index.html' %}" class="scrollto">VirtuaLAB</a></h1>
+			<!-- Uncomment below if you prefer to use an image logo -->
+			<!-- <a href="{% static 'coreapp/index.html' %}"><img src="{% static 'coreapp/assets/img/logo.png' %}" alt=""></a> -->
+		</div>
+
+		<nav id="nav-menu-container">
+			<ul class="nav-menu">
+				<li class="menu-active"><a href="/">Home</a></li>
+				<li><a href="{% static 'coreapp/#features' %}">Schedule</a></li>
+				<li><a href="{% static 'coreapp/#about' %}">Class</a></li>
+				<li><a href="{% static 'coreapp/#features' %}">Lab</a></li>
+				<li><a href="{% static 'coreapp/#features' %}">Assignments</a></li>
+				<li><a href="{% static 'coreapp/#pricing' %}">Archive</a></li>
+				<li><a href="{% static 'coreapp/#team' %}">Results</a></li>
+				<li><a href="{% static 'coreapp/#gallery' %}">Statistics</a></li>
+				{#				<li class="menu-has-children"><a href="">Drop Down</a>#}
+				{#					<ul>#}
+				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 1</a></li>#}
+				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 3</a></li>#}
+				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 4</a></li>#}
+				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 5</a></li>#}
+				{#					</ul>#}
+				{#				</li>#}
+				{#				<li><a href="{% static 'coreapp/#contact' %}">Contact Us</a></li>#}
+				{#				<li class="nav-item avatar dropdown">#}
+				{#					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"#}
+				{#					   aria-haspopup="true" aria-expanded="false">#}
+				{#						<img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"#}
+				{#						     class="rounded-circle z-depth-0"#}
+				{#						     alt="avatar image">#}
+				{#					</a>#}
+				{#					<div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"#}
+				{#					     aria-labelledby="navbarDropdownMenuLink-55">#}
+				{#						<a class="dropdown-item" href="#">Action</a>#}
+				{#						<a class="dropdown-item" href="#">Another action</a>#}
+				{#						<a class="dropdown-item" href="#">Something else here</a>#}
+				{#					</div>#}
+				{#				</li>#}
+			</ul>
+			<ul class="nav navbar-nav navbar-right nav-menu">
+				<li class="menu-has-children dropdown-toggle " data-toggle="dropdown">
+{#										<a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
+					<img src="https://lh3.googleusercontent.com/ogw/ADGmqu-5nbj9Fy7e58riz3PhS8gGlLE53Ctsfh8HdWnuxqw=s32-c-mo"/>
+					<ul class="dropdown-menu">
+						<li><a href="#"><i class="fa fa-cog"></i> Account</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="fa fa-sign-out"></i> Sign-out</a></li>
+					</ul>
+{#										</a>#}
+{#					<b class="caret"></b>#}
+
+				</li>
+				{#				<li class="menu-has-children"><a href="">Drop Down</a>#}
+				{#					<ul>#}
+				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 1</a></li>#}
+				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 3</a></li>#}
+				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 4</a></li>#}
+				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 5</a></li>#}
+				{#					</ul>#}
+				{#				</li>#}
+				{#				<li  class="active"><a href="#"><i class="fa fa-suitcase"></i> Projects</a></li>#}
+				{#								<li><a href="{% static 'coreapp/#contact' %}">Contact Us</a></li>#}
+				{#				<li class="dropdown">#}
+				{#					<a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown">#}
+				{#						<img src="http://placehold.it/30x30" class="img-circle"> Test <b class="caret"></b></a>#}
+				{#					<ul class="dropdown-menu">#}
+				{#						<li><a href="#"><i class="fa fa-cog"></i> Account</a></li>#}
+				{#						<li class="divider"></li>#}
+				{#						<li><a href="#"><i class="fa fa-sign-out"></i> Sign-out</a></li>#}
+				{#					</ul>#}
+				{#				</li>#}
+			</ul>
+		</nav><!-- #nav-menu-container -->
+	</div>
+</header><!-- End Header -->
+
+<!-- ======= Intro Section ======= -->
+<section id="intro">
+
+</section>
+<!-- End Intro Section -->
+
+<main id="main">
+	{% block body-content %}
+
+	{% endblock %}
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 text-lg-left text-center">
+				<div class="copyright">
+					&copy; Copyright <strong>Avilon</strong>. All Rights Reserved
+				</div>
+				<div class="credits">
+					<!--
+					All the links in the footer should remain intact.
+					You can delete the links only if you purchased the pro version.
+					Licensing information: https://bootstrapmade.com/license/
+					Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Avilon
+				  -->
+					Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+					<a href="{% static 'coreapp/#intro' %}" class="scrollto">Home</a>
+					<a href="{% static 'coreapp/#about' %}" class="scrollto">About</a>
+					<a href="{% static 'coreapp/#' %}">Privacy Policy</a>
+					<a href="{% static 'coreapp/#' %}">Terms of Use</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+</footer><!-- End  Footer -->
+
+<a href="{% static 'coreapp/#' %}" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'coreapp/assets/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'coreapp/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'coreapp/assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+<script src="{% static 'coreapp/assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'coreapp/assets/vendor/wow/wow.min.js' %}"></script>
+<script src="{% static 'coreapp/assets/vendor/venobox/venobox.min.js' %}"></script>
+<script src="{% static 'coreapp/assets/vendor/superfish/superfish.min.js' %}"></script>
+<script src="{% static 'coreapp/assets/vendor/hoverIntent/hoverIntent.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'coreapp/assets/js/main.js' %}"></script>
+{% block tail-js %}
+{% endblock %}
+
+</body>
+
+</html>
