@@ -1,0 +1,46 @@
+{% extends 'coreapp/avilon/base.html' %}
+{% load static %}
+
+{% block body-content %}
+	<!-- ======= Gallery Section ======= -->
+	<section id="gallery" style="height: 100%;">
+		<div class="container-fluid">
+			<div class="section-header">
+			  <h3 class="section-title">Your Laboratories</h3>
+			</div>
+
+			<div class="row no-gutters">
+
+				<div class="col-lg-4 col-md-6">
+					<div class="gallery-item wow fadeInUp">
+						<a href="{% url 'coreapp:lab' %}?lab=physics" data-gall="portfolioGallery">
+							<img src="https://th.bing.com/th/id/OIP.xRsCCHt7weZ0R35W6DtKIAHaE8?pid=Api&rs=1" alt="">
+							<p class="img-description">Physics</p>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-6">
+					<div class="gallery-item wow fadeInUp">
+						<a href="{% url 'coreapp:lab' %}?lab=chemistry" data-gall="portfolioGallery">
+							<img src="https://www.studyread.com/wp-content/uploads/2014/04/Titration-process.jpg" alt="">
+							<p class="img-description">Chemistry</p>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-6">
+					<div class="gallery-item wow fadeInUp">
+						<a href="{% url 'coreapp:lab' %}?lab=biology" data-gall="portfolioGallery">
+							<img src="https://epmgaa.media.clients.ellingtoncms.com/img/photos/2015/11/19/bacteria-500-466x298.jpg" alt="">
+							<p class="img-description">Biology</p>
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- End Gallery Section -->
+
+{% endblock %}
