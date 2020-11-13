@@ -50,21 +50,21 @@
 	<div class="container">
 
 		<div id="logo" class="pull-left">
-			<h1><a href="{% static 'coreapp/index.html' %}" class="scrollto">VirtuaLAB</a></h1>
+			<h1><a href="/" class="scrollto">VirtuaLAB</a></h1>
 			<!-- Uncomment below if you prefer to use an image logo -->
-			<!-- <a href="{% static 'coreapp/index.html' %}"><img src="{% static 'coreapp/assets/img/logo.png' %}" alt=""></a> -->
+			<!-- <a href="{% static '/' %}"><img src="{% static 'coreapp/assets/img/logo.png' %}" alt=""></a> -->
 		</div>
 
 		<nav id="nav-menu-container">
 			<ul class="nav-menu">
 				<li class="menu-active"><a href="/">Home</a></li>
-				<li><a href="{% static 'coreapp/#features' %}">Schedule</a></li>
-				<li><a href="{% static 'coreapp/#about' %}">Class</a></li>
-				<li><a href="{% static 'coreapp/#features' %}">Lab</a></li>
-				<li><a href="{% static 'coreapp/#features' %}">Assignments</a></li>
-				<li><a href="{% static 'coreapp/#pricing' %}">Archive</a></li>
-				<li><a href="{% static 'coreapp/#team' %}">Results</a></li>
-				<li><a href="{% static 'coreapp/#gallery' %}">Statistics</a></li>
+				<li><a href="/schedule/">Schedule</a></li>
+				<li><a href="/class/">Class</a></li>
+				<li><a href="/lab/">Lab</a></li>
+				<li><a href="/assignment/">Assignments</a></li>
+				<li><a href="/archive/">Archive</a></li>
+				<li><a href="/result/">Results</a></li>
+				<li><a href="/stat/">Statistics</a></li>
 				{#				<li class="menu-has-children"><a href="">Drop Down</a>#}
 				{#					<ul>#}
 				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 1</a></li>#}
@@ -88,39 +88,47 @@
 				{#						<a class="dropdown-item" href="#">Something else here</a>#}
 				{#					</div>#}
 				{#				</li>#}
+				{% if request.user.is_authenticated %}
+					<li><a href="{% url 'coreapp:logout' %}">Logout</a></li>
+				{% endif %}
 			</ul>
 			<ul class="nav navbar-nav navbar-right nav-menu">
-				<li class="menu-has-children dropdown-toggle " data-toggle="dropdown">
-{#										<a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
-					<img src="https://lh3.googleusercontent.com/ogw/ADGmqu-5nbj9Fy7e58riz3PhS8gGlLE53Ctsfh8HdWnuxqw=s32-c-mo"/>
-					<ul class="dropdown-menu">
-						<li><a href="#"><i class="fa fa-cog"></i> Account</a></li>
-						<li class="divider"></li>
-						<li><a href="#"><i class="fa fa-sign-out"></i> Sign-out</a></li>
-					</ul>
-{#										</a>#}
-{#					<b class="caret"></b>#}
+				{% if not request.user.is_authenticated %}
+					<li><a href="{% url 'coreapp:login' %}">Login</a></li>
+				{% else %}
+					<li class="menu-has-children dropdown-toggle " data-toggle="dropdown">
+						{#										<a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
+						<img src="https://lh3.googleusercontent.com/ogw/ADGmqu-5nbj9Fy7e58riz3PhS8gGlLE53Ctsfh8HdWnuxqw=s32-c-mo"/>
+						{{ request.user.username }}
+						<ul class="dropdown-menu">
+							<li><a href="#"><i class="fa fa-cog"></i> Account</a></li>
+							<li class="divider"></li>
+							<li><a href="#"><i class="fa fa-sign-out"></i> Sign-out</a></li>
+						</ul>
+						{#										</a>#}
+						{#					<b class="caret"></b>#}
 
-				</li>
-				{#				<li class="menu-has-children"><a href="">Drop Down</a>#}
-				{#					<ul>#}
-				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 1</a></li>#}
-				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 3</a></li>#}
-				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 4</a></li>#}
-				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 5</a></li>#}
-				{#					</ul>#}
-				{#				</li>#}
-				{#				<li  class="active"><a href="#"><i class="fa fa-suitcase"></i> Projects</a></li>#}
-				{#								<li><a href="{% static 'coreapp/#contact' %}">Contact Us</a></li>#}
-				{#				<li class="dropdown">#}
-				{#					<a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown">#}
-				{#						<img src="http://placehold.it/30x30" class="img-circle"> Test <b class="caret"></b></a>#}
-				{#					<ul class="dropdown-menu">#}
-				{#						<li><a href="#"><i class="fa fa-cog"></i> Account</a></li>#}
-				{#						<li class="divider"></li>#}
-				{#						<li><a href="#"><i class="fa fa-sign-out"></i> Sign-out</a></li>#}
-				{#					</ul>#}
-				{#				</li>#}
+					</li>
+					{#				<li class="menu-has-children"><a href="">Drop Down</a>#}
+					{#					<ul>#}
+					{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 1</a></li>#}
+					{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 3</a></li>#}
+					{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 4</a></li>#}
+					{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 5</a></li>#}
+					{#					</ul>#}
+					{#				</li>#}
+					{#				<li  class="active"><a href="#"><i class="fa fa-suitcase"></i> Projects</a></li>#}
+					{#								<li><a href="{% static 'coreapp/#contact' %}">Contact Us</a></li>#}
+					{#				<li class="dropdown">#}
+					{#					<a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown">#}
+					{#						<img src="http://placehold.it/30x30" class="img-circle"> Test <b class="caret"></b></a>#}
+					{#					<ul class="dropdown-menu">#}
+					{#						<li><a href="#"><i class="fa fa-cog"></i> Account</a></li>#}
+					{#						<li class="divider"></li>#}
+					{#						<li><a href="#"><i class="fa fa-sign-out"></i> Sign-out</a></li>#}
+					{#					</ul>#}
+					{#				</li>#}
+				{% endif %}
 			</ul>
 		</nav><!-- #nav-menu-container -->
 	</div>
