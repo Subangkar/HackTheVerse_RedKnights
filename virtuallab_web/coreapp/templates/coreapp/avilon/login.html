@@ -1,0 +1,42 @@
+{% extends 'coreapp/avilon/base.html' %}
+{% load static %}
+
+
+{% block header-css %}
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link href="{% static 'coreapp/assets/css/login.css' %}" rel="stylesheet" id="bootstrap-css">
+
+{% endblock %}
+
+{% block tail-js %}
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body-content %}
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+			<!-- Tabs Titles -->
+
+			<!-- Icon -->
+			<div class="fadeIn first">
+				<img src="http://cdn.onlinewebfonts.com/svg/download_554120.png"
+				     id="icon" alt="User Icon" height="10%" width="150px"/>
+			</div>
+
+			<!-- Login Form -->
+			<form method="post" action="{% url 'coreapp:login' %}">
+				{% csrf_token %}
+				<input type="text" id="login" class="fadeIn second" name="name" placeholder="Student ID">
+				{#				<input type="password" id="password" class="fadeIn third" name="password" placeholder="password">#}
+				<input type="submit" class="fadeIn fourth" value="Log In">
+			</form>
+
+			<!-- Remind Passowrd -->
+			<div id="formFooter">
+				<a class="underlineHover" href="#">Forgot Password?</a>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}
