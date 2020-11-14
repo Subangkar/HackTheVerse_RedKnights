@@ -94,3 +94,7 @@ def lab_detail(request):
     l = [('Simple Pendulum', 'http://www.acs.psu.edu/drussell/Demos/Pendulum/compare-lengths.gif'),
          ("Young's Experiment", "https://physicsforus.files.wordpress.com/2011/07/doubleslit_animation.gif")] * 6
     return render(request, 'coreapp/avilon/student-lab-exp.html', context={'exp_list': l})
+
+
+def chart(request):
+    return render(request, 'coreapp/avilon/hist-chart.html')

@@ -15,20 +15,11 @@ urlpatterns = [
     # path('lab/biology/', views.lab_detail, name='lab-biology'),
     path('class/', views.lab, name='class'),
     path('assignment/', views.lab, name='assignment'),
+    path('chart/', views.chart, name='chart')
     # path('browse/', views.OrderView.as_view(), name='package-list'),
     # path('offer/', views.OfferView, name='offer-list'),
     # path('about/', views.aboutSection),
     # path('contact/', views.contactSection),
-    # path('branch_pkg_availability/', views.branch_pkg_availability),
-    # path('browse/filter/', views.FilteredProducts, name='rating_filter'),
-    #
-    # path('browse/restaurants/', views.RestaurantList.as_view(), name='restaurants'),
-    # path('browse/branches/', views.RestaurantList.as_view(), name='branches'),
-    #
-    # # path('menuEntryForRestaurant/', views.RestaurantMenuEntryList.as_view()),
-    # # path('branchListForRestaurant/', views.RestaurantBranchList.as_view())
-    # path('browse/raw/', views.viewRaw),
-    #
     # path('browse/item/<int:id>/', views.PackageDetails.as_view(), name='package-details'),
     # path('browse/item/<int:id>/submitReview/', views.submitReview),
     # path('browse/item/<int:id>/submitRating/', views.submitPackageRating),
