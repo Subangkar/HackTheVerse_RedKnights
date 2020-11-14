@@ -34,25 +34,16 @@
 	{% block header-css %}
 
 	{% endblock %}
-
-	<!-- =======================================================
-	* Template Name: Avilon - v2.1.0
-	* Template URL: https://bootstrapmade.com/avilon-bootstrap-landing-page-template/
-	* Author: BootstrapMade.com
-	* License: https://bootstrapmade.com/license/
-	======================================================== -->
 </head>
 
 <body>
 
 <!-- ======= Header ======= -->
-<header id="header" class="header-transparent">
+<header id="header" class="header-transparent" style="margin-right: 10%">
 	<div class="container">
 
 		<div id="logo" class="pull-left">
 			<h1><a href="/" class="scrollto">VirtuaLAB</a></h1>
-			<!-- Uncomment below if you prefer to use an image logo -->
-			<!-- <a href="{% static '/' %}"><img src="{% static 'coreapp/assets/img/logo.png' %}" alt=""></a> -->
 		</div>
 
 		<nav id="nav-menu-container">
@@ -60,35 +51,11 @@
 				{#			class="menu-active"#}
 				<li><a href="/">Home</a></li>
 				<li><a href="/schedule/">Schedule</a></li>
-				<li><a href="/class/">Class</a></li>
-				<li><a href="/lab/">Lab</a></li>
-				<li><a href="/assignment/">Assignments</a></li>
-				<li><a href="/archive/">Archive</a></li>
-				<li><a href="/result/">Results</a></li>
-				<li><a href="/stat/">Statistics</a></li>
-				{#				<li class="menu-has-children"><a href="">Drop Down</a>#}
-				{#					<ul>#}
-				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 1</a></li>#}
-				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 3</a></li>#}
-				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 4</a></li>#}
-				{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 5</a></li>#}
-				{#					</ul>#}
-				{#				</li>#}
-				{#				<li><a href="{% static 'coreapp/#contact' %}">Contact Us</a></li>#}
-				{#				<li class="nav-item avatar dropdown">#}
-				{#					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"#}
-				{#					   aria-haspopup="true" aria-expanded="false">#}
-				{#						<img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"#}
-				{#						     class="rounded-circle z-depth-0"#}
-				{#						     alt="avatar image">#}
-				{#					</a>#}
-				{#					<div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"#}
-				{#					     aria-labelledby="navbarDropdownMenuLink-55">#}
-				{#						<a class="dropdown-item" href="#">Action</a>#}
-				{#						<a class="dropdown-item" href="#">Another action</a>#}
-				{#						<a class="dropdown-item" href="#">Something else here</a>#}
-				{#					</div>#}
-				{#				</li>#}
+				<li><a href="{% url 'coreapp:class' %}">Class</a></li>
+				<li><a href="{% url 'coreapp:lab' %}">Lab</a></li>
+{#				<li><a href="{% url 'coreapp:assignment' %}">Assignments</a></li>#}
+{#				<li><a href="{% url 'coreapp:archive' %}">Archive</a></li>#}
+				<li><a href="{% url 'coreapp:result' %}">Results</a></li>
 				{% if request.user.is_authenticated %}
 					<li><a href="{% url 'coreapp:logout' %}">Logout</a></li>
 				{% endif %}
@@ -99,36 +66,14 @@
 				{% else %}
 					<li class="menu-has-children dropdown-toggle " data-toggle="dropdown">
 						{#										<a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
-						<img src="https://lh3.googleusercontent.com/ogw/ADGmqu-5nbj9Fy7e58riz3PhS8gGlLE53Ctsfh8HdWnuxqw=s32-c-mo"/>
-						{{ request.user.username }}
+						<img src="http://www.newdesignfile.com/postpic/2015/08/person-profile-icon_303067.png" width="25px" height="25px"/>
+						{{ request.user.username | capfirst }}
 						<ul class="dropdown-menu">
 							<li><a href="#"><i class="fa fa-cog"></i> Account</a></li>
 							<li class="divider"></li>
 							<li><a href="#"><i class="fa fa-sign-out"></i> Sign-out</a></li>
 						</ul>
-						{#										</a>#}
-						{#					<b class="caret"></b>#}
-
 					</li>
-					{#				<li class="menu-has-children"><a href="">Drop Down</a>#}
-					{#					<ul>#}
-					{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 1</a></li>#}
-					{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 3</a></li>#}
-					{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 4</a></li>#}
-					{#						<li><a href="{% static 'coreapp/#' %}">Drop Down 5</a></li>#}
-					{#					</ul>#}
-					{#				</li>#}
-					{#				<li  class="active"><a href="#"><i class="fa fa-suitcase"></i> Projects</a></li>#}
-					{#								<li><a href="{% static 'coreapp/#contact' %}">Contact Us</a></li>#}
-					{#				<li class="dropdown">#}
-					{#					<a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown">#}
-					{#						<img src="http://placehold.it/30x30" class="img-circle"> Test <b class="caret"></b></a>#}
-					{#					<ul class="dropdown-menu">#}
-					{#						<li><a href="#"><i class="fa fa-cog"></i> Account</a></li>#}
-					{#						<li class="divider"></li>#}
-					{#						<li><a href="#"><i class="fa fa-sign-out"></i> Sign-out</a></li>#}
-					{#					</ul>#}
-					{#				</li>#}
 				{% endif %}
 			</ul>
 		</nav><!-- #nav-menu-container -->
@@ -155,23 +100,6 @@
 				<div class="copyright">
 					&copy; Copyright <strong>Avilon</strong>. All Rights Reserved
 				</div>
-				<div class="credits">
-					<!--
-					All the links in the footer should remain intact.
-					You can delete the links only if you purchased the pro version.
-					Licensing information: https://bootstrapmade.com/license/
-					Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Avilon
-				  -->
-					Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-					<a href="{% static 'coreapp/#intro' %}" class="scrollto">Home</a>
-					<a href="{% static 'coreapp/#about' %}" class="scrollto">About</a>
-					<a href="{% static 'coreapp/#' %}">Privacy Policy</a>
-					<a href="{% static 'coreapp/#' %}">Terms of Use</a>
-				</nav>
 			</div>
 		</div>
 	</div>
