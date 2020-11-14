@@ -147,15 +147,11 @@ def classview(request):
     return render(request, 'coreapp/avilon/student-class.html')
 
 
-def chart(request):
-    return render(request, 'coreapp/avilon/hist-chart.html')
-
-
 def experiment(request, id=None):
     if id is None:
         return redirect('/')
     name = SIMUID_MAP_FOR_DEMO[id]
-    return render(request, 'coreapp/avilon/simulations/' + name)
+    return render(request, 'coreapp/simulations/' + name)
 
 
 def result(request):
