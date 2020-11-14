@@ -23,15 +23,21 @@ SIMUID_MAP_FOR_DEMO = {
 }
 
 
+def is_teacher(username):
+    username = username.strip().lower()
+    return username in USERID_MAP_FOR_DEMO and USERID_MAP_FOR_DEMO[username] == 'Teacher'
+
+
 class Index(TemplateView):
     """
     Renders Home Page
     """
     template_name = 'coreapp/avilon/student-home.html'
 
-    def get_context_data(self, **kwargs):
-        ctx = {'loggedIn': self.request.user.is_authenticated}
-        return ctx
+    def get(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated and is_teacher(request.user.username):
+            self.template_name = 'coreapp/avilon/teacher-home.html'
+        return super().get(request, args, kwargs)
 
 
 class Login(TemplateView):
