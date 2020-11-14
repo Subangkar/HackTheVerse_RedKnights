@@ -1,0 +1,65 @@
+{% extends 'coreapp/avilon/base.html' %}
+{% load static %}
+
+{% block tail-js %}
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load("current", {packages: ["corechart"]});
+		google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart() {
+			var dict = {
+				"PHYSICS": [
+					['Topic', 'Percentage'],
+					['Vector', 9.1],
+					['Force', 9.1],
+					['Work & Efficiency', 40],
+					['Wave', 75],
+					['Gas', 85],
+					['Circuit', 97],
+					['Magnetism', 10],
+					['Light', 88],
+					['Modern Physics', 92],
+				],
+				"CHEMISTRY": [
+					['Topic', 'Percentage'],
+					['Solubility', 25],
+					['Gas', 85],
+					['Equilibrium', 92],
+					['Quantitative Analysis', 80],
+					['Organic Chemistry', 15],
+					['Electrolytic Solution', 75],
+				],
+				"BIOLOGY": [
+					['Topic', 'Percentage'],
+					['Cell', 75],
+					['Biochemistry', 30],
+					['Microorganisms', 85],
+					['Human Body', 60],
+				],
+			};
+
+			var data = google.visualization.arrayToDataTable(dict["{{ classname }}"]);
+
+			var options = {
+				title: 'Class Time(min)',
+				legend: {position: 'top'},
+			};
+
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+	</script>
+
+{% endblock %}
+
+{% block body-content %}
+	<div align="center">
+		<!-- Example single danger button -->
+
+		<div>
+			<h3>Subject Topic-wise Activeness :: {{ classname }}</h3>
+		</div>
+		<div id="chart_div" style="width: 80%; height: 80vh;"></div>
+	</div>
+{% endblock %}

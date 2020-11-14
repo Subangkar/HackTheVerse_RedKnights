@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -165,3 +167,15 @@ def result(request):
     except:
         pass
     return render(request, 'coreapp/avilon/student-result.html')
+
+
+def recording(request):
+    try:
+        labname = str(request.GET.get('class')).lower()
+        print('>', labname)
+        if labname in ['physics', 'chemistry', 'biology', 'math', 'bengali', 'english']:
+            return render(request, 'coreapp/avilon/topic-activity.html',
+                          context={'classname': labname.upper()})
+    except:
+        pass
+    return render(request, 'coreapp/avilon/student-recording.html')
