@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.urls import reverse
 from django.views.generic import TemplateView
 
 USERID_MAP_FOR_DEMO = {
@@ -12,6 +13,11 @@ USERID_MAP_FOR_DEMO = {
     'samin': 'Student',
     'joseph': 'Teacher',
     'andrew': 'Teacher',
+}
+
+SIMUID_MAP_FOR_DEMO = {
+    1: 'Collision Lab Phet.html',
+    2: 'Projectile Simulation.html',
 }
 
 
@@ -57,14 +63,20 @@ def lab(request):
     try:
         labname = str(request.GET.get('lab')).lower()
         exp_lists = {
-            'physics': [('Simple Pendulum', 'http://www.acs.psu.edu/drussell/Demos/Pendulum/compare-lengths.gif'),
-                        ("Series-Parallel Circuit",
-                         "http://s4.thingpic.com/images/SC/yUMJVwbNDtnrffhX2HHUVH5e.gif"),
-                        ("Prism Experiment",
-                         "https://media0.giphy.com/media/l0MYKMrQnwNvLjYhW/source.gif"),
-                        ("Young's Experiment",
-                         "https://physicsforus.files.wordpress.com/2011/07/doubleslit_animation.gif"),
-                        ],
+            'physics': [
+                ('Projectile',
+                 'https://kaiserscience.files.wordpress.com/2015/08/horizontally-launched-projectiles.gif',
+                 reverse('coreapp:experiment', kwargs={'id': 2})),
+                ('Collision', 'https://xmphysics.files.wordpress.com/2019/03/collisiongraphs-a.gif',
+                 reverse('coreapp:experiment', kwargs={'id': 1})),
+                ("Series-Parallel Circuit",
+                 "http://s4.thingpic.com/images/SC/yUMJVwbNDtnrffhX2HHUVH5e.gif"),
+                ("Prism Experiment",
+                 "https://media0.giphy.com/media/l0MYKMrQnwNvLjYhW/source.gif"),
+                ("Young's Experiment",
+                 "https://physicsforus.files.wordpress.com/2011/07/doubleslit_animation.gif"),
+                ('Simple Pendulum', 'http://www.acs.psu.edu/drussell/Demos/Pendulum/compare-lengths.gif'),
+            ],
             'chemistry': [('NaOH-H2SO4 Titration',
                            'https://www.buffaloschools.org/cms/lib/NY01913551/Centricity/Domain/6557/titration1.gif'),
                           ("Bunsen Burner",
@@ -98,3 +110,10 @@ def lab_detail(request):
 
 def chart(request):
     return render(request, 'coreapp/avilon/hist-chart.html')
+
+
+def experiment(request, id=None):
+    if id is None:
+        return redirect('/')
+    name = SIMUID_MAP_FOR_DEMO[id]
+    return render(request, 'coreapp/avilon/simulations/' + name)

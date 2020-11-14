@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/', views.Login.as_view(), name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('lab/', views.lab, name='lab'),
+    path('experiment/<int:id>', views.experiment, name='experiment'),
     # path('lab/physics/', views.lab_detail, name='lab-physics'),
     # path('lab/chemistry/', views.lab_detail, name='lab-chemistry'),
     # path('lab/biology/', views.lab_detail, name='lab-biology'),
