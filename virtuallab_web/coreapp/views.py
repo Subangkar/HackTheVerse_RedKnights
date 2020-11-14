@@ -154,3 +154,14 @@ def experiment(request, id=None):
         return redirect('/')
     name = SIMUID_MAP_FOR_DEMO[id]
     return render(request, 'coreapp/avilon/simulations/' + name)
+
+
+def result(request):
+    try:
+        labname = str(request.GET.get('class')).lower()
+        print(labname)
+        if labname in ['physics', 'chemistry', 'biology', 'math', 'bengali', 'english']:
+            return render(request, 'coreapp/avilon/student-activity.html')
+    except:
+        pass
+    return render(request, 'coreapp/avilon/student-result.html')

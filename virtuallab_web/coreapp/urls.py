@@ -15,6 +15,7 @@ urlpatterns = [
     # path('lab/chemistry/', views.lab_detail, name='lab-chemistry'),
     # path('lab/biology/', views.lab_detail, name='lab-biology'),
     path('class/', views.classview, name='class'),
+    path('result/', views.result, name='result'),
     path('assignment/', views.lab, name='assignment'),
     path('chart/', views.chart, name='chart')
     # path('browse/', views.OrderView.as_view(), name='package-list'),

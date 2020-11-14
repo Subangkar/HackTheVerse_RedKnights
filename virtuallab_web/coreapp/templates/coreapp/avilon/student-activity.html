@@ -1,0 +1,60 @@
+{% extends 'coreapp/avilon/base.html' %}
+{% load static %}
+
+{% block tail-js %}
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load("current", {packages: ["corechart"]});
+		google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Time', 'Percentage'],
+				['1-5', 9.1],
+				['6-10', 40],
+				['11-15', 75],
+				['16-20', 85],
+				['21-25', 88],
+				['26-30', 97],
+				['31-35', 92],
+				['36-40', 87],
+				['41-45', 81],
+				['46-50', 75],
+				['51-55', 61],
+				['56-60', 30],
+			]);
+
+			var options = {
+				title: 'Class Time(min)',
+				legend: {position: 'top'},
+			};
+
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+	</script>
+
+{% endblock %}
+
+{% block body-content %}
+	<div align="center">
+		<!-- Example single danger button -->
+
+		<div>
+			<h3>Class Activeness</h3>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+			        aria-expanded="false">
+				Class Day ::
+				<span class="selection">Class 1: Oct 15, 2020</span><span class="caret"></span>
+			</button>
+			<div class="dropdown-menu" role="menu">
+				<a class="dropdown-item" href="#">Class 1: Oct 15, 2020</a>
+				<a class="dropdown-item" href="#">Class 2: Oct 17, 2020</a>
+				<a class="dropdown-item" href="#">Class 3: Oct 19, 2020</a>
+			</div>
+		</div>
+		<div id="chart_div" style="width: 80%; height: 80vh;"></div>
+	</div>
+{% endblock %}
