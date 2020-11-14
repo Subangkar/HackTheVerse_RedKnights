@@ -1165,11 +1165,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   left: 0;
   right: 0;
   /* background: rgba(29, 106, 154, 0.72); */
-  color: #ff0000;
+  color: #fd1313;
   visibility: hidden;
   opacity: 0;
   font-weight: bold;
-  font-size: xx-large;
+  font-size: 70px;
 
   /* transition effect. not necessary */
   transition: opacity .2s, visibility .2s;

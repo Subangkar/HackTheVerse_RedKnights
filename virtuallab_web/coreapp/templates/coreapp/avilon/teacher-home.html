@@ -13,8 +13,7 @@
 
 				<div class="col-lg-4 col-md-6">
 					<div class="gallery-item wow fadeInUp">
-						<a href="http://www.careerguidance.com/wp-content/uploads/2009/08/Teacher-careers.jpg" data-gall="portfolioGallery"
-						   class="venobox">
+						<a href="{% url 'coreapp:class' %}" data-gall="portfolioGallery">
 							<img src="http://www.careerguidance.com/wp-content/uploads/2009/08/Teacher-careers.jpg"
 							     alt="">
 							<p class="img-description">Class</p>
@@ -24,8 +23,7 @@
 
 				<div class="col-lg-4 col-md-6">
 					<div class="gallery-item wow fadeInUp">
-						<a href="{% static 'coreapp/assets/img/gallery/gallery-2.jpg' %}" data-gall="portfolioGallery"
-						   class="venobox">
+						<a href="{% url 'coreapp:lab' %}" data-gall="portfolioGallery">
 							<img src="http://stcathys.com/blog/wp-content/uploads/2017/05/lab-assistant.png"
 							     alt="">
 							<p class="img-description">LAB</p>
@@ -34,8 +32,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="gallery-item wow fadeInUp">
-						<a href="{% static 'coreapp/assets/img/gallery/gallery-4.jpg' %}" data-gall="portfolioGallery"
-						   class="venobox">
+						<a href="{% url 'coreapp:result' %}?class=chemistry" data-gall="portfolioGallery">
 							<img src="https://cdn2.hubspot.net/hubfs/80068/real-time-visibility-wifi-performance-tips.png" alt="">
 							<p class="img-description">Analytics</p>
 						</a>
