@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -145,15 +147,11 @@ def classview(request):
     return render(request, 'coreapp/avilon/student-class.html')
 
 
-def chart(request):
-    return render(request, 'coreapp/avilon/hist-chart.html')
-
-
 def experiment(request, id=None):
     if id is None:
         return redirect('/')
     name = SIMUID_MAP_FOR_DEMO[id]
-    return render(request, 'coreapp/avilon/simulations/' + name)
+    return render(request, 'coreapp/simulations/' + name)
 
 
 def result(request):
@@ -165,3 +163,15 @@ def result(request):
     except:
         pass
     return render(request, 'coreapp/avilon/student-result.html')
+
+
+def recording(request):
+    try:
+        labname = str(request.GET.get('class')).lower()
+        print('>', labname)
+        if labname in ['physics', 'chemistry', 'biology', 'math', 'bengali', 'english']:
+            return render(request, 'coreapp/avilon/topic-activity.html',
+                          context={'classname': labname.upper()})
+    except:
+        pass
+    return render(request, 'coreapp/avilon/student-recording.html')

@@ -1,2 +1,6 @@
 
 virtuallab_web/db.sqlite3
+
+**/__pycache__
+*.pyc
+**/.idea
